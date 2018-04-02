@@ -128,6 +128,17 @@ func divideIfWhole(_ value: Int, by divisor: Int) -> Int? {
     return nil
 }
 
+func test(_ value: Int, with divisor: Int) {
+    guard let result = divideIfWhole(value, by: divisor) else {
+        print("Not divisible :[")
+        return
+    }
+    print("Yep, it divides \(result) times")
+}
+
+test(10, with: 2)
+test(10, with: 3)
+
 
 
 
