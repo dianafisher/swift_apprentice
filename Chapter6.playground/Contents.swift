@@ -12,7 +12,7 @@ import UIKit
 
 var myFavoriteSong: String?
 myFavoriteSong = "The Handler"
-myFavoriteSong = nil
+//myFavoriteSong = nil
 
 /*:
  ## 2. Create a constant called parsedInt and set it equal to Int("10") which tries to parse the string 10 and convert it to an Int. Check the type of parsedInt using Option-Click. Why is it an optional?
@@ -67,5 +67,31 @@ if let faveSong = myFavoriteSong {
 }
 
 /*:
- ## 2. 
+ ## 2. Change myFavoriteSong to the opposite of what it is now. If it’s nil, set it to a string; if it’s a string, set it to nil. Observe how your printed result changes.
+ 
  */
+
+/*:
+ # Notes
+ */
+
+// ?? is the nil coalescing operator
+
+var optionalInt: Int? = 10
+var mustHaveResult: Int
+if let unwrapped = optionalInt {
+    mustHaveResult = unwrapped
+} else {
+    mustHaveResult = 0
+}
+
+// can be written as:
+
+optionalInt = nil
+mustHaveResult = optionalInt ?? 0
+
+/*
+The safest ways to unwrap an optional’s value is by using optional binding or nil coalescing. Use forced unwrapping only when appropriate, as it could produce a runtime error.
+*/
+
+
