@@ -91,7 +91,43 @@ optionalInt = nil
 mustHaveResult = optionalInt ?? 0
 
 /*
+ Non-optional variables and constants must always be non-nil.
+ 
 The safest ways to unwrap an optional’s value is by using optional binding or nil coalescing. Use forced unwrapping only when appropriate, as it could produce a runtime error.
 */
+
+/*:
+ # Challenges
+ 
+ ## Challenge 1: You be the compiler
+ 
+ Which of the following are valid statements?
+    var name: String? = "Ray"       // valid.
+    var age: Int = nil              // invalid.  non-optional cannot be nil
+    let distance: Float = 26.7      // valid.
+    var middleName: String? = nil”  // valid.
+ */
+
+/*:
+ ## Challenge 2: Divide and conquer
+ 
+ First, create a function that returns the number of times an integer can be divided by another integer without a remainder. The function should return nil if the division doesn’t produce a whole number. Name the function divideIfWhole.
+ 
+ Then, write code that tries to unwrap the optional result of the function. There should be two cases: upon success, print "Yep, it divides \(answer) times", and upon failure, print "Not divisible :[".
+ 
+ Finally, test your function:
+ Divide 10 by 2. This should print "Yep, it divides 5 times."
+ Divide 10 by 3. This should print "Not divisible :[.
+ */
+
+func divideIfWhole(_ value: Int, by divisor: Int) -> Int? {
+    let remainder = value % divisor
+    if remainder == 0 {
+        return value / divisor
+    }
+    return nil
+}
+
+
 
 
