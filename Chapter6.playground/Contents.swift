@@ -139,6 +139,68 @@ func test(_ value: Int, with divisor: Int) {
 test(10, with: 2)
 test(10, with: 3)
 
+/*:
+ ## Challenge 3: Refactor and reduce
+ The code you wrote in the last challenge used if statements. In this challenge, refactor that code to use nil coalescing instead. This time, make it print "It divides X times" in all cases, but if the division doesn’t result in a whole number, then X should be 0.
+ */
 
+let answer = divideIfWhole(10, by: 2) ?? 0
+print("It divides \(answer) times")
+
+let answer2 = divideIfWhole(10, by: 3) ?? 0
+print("It divides \(answer2) times")
+
+/*:
+ ## Challenge 4: Nested optionals
+ Consider the following nested optional. It corresponds to a number inside a box inside a box inside a box.
+    let number: Int??? = 10
+ 
+ If you print number you get the following:
+    print(number)
+    // Optional(Optional(Optional(10)))
+ 
+    print(number!)
+    // Optional(Optional(10))
+ 
+ Do the following:
+ 
+ Fully force unwrap and print number.
+ 
+ Optionally bind and print number with if let.
+ 
+ Write a function printNumber(_ number: Int???) that uses guard to print the number only if it is bound.
+ */
+let number: Int??? = 10  // nested optional
+
+print(number)
+
+// 1. Fully unwrap and print the number
+print(number!!!)
+
+// 2. Optionally bind and print number with if let
+if let a = number {
+    if let b = a {
+        if let c = b {
+            print(c)
+        }
+    }
+}
+
+// 3. Write a function...
+
+func printNumber(_ number: Int???) {
+    guard let a = number else{
+        return
+    }
+    guard let b = a else{
+        return
+    }
+    guard let c = b else {
+        return
+    }
+    print(c)
+}
+
+printNumber(number)
 
 
