@@ -143,3 +143,26 @@ isPrime(6)
 isPrime(13)
 isPrime(8893)
 isPrime(25)
+
+/*:
+ ### Challenge 3: Recursive functions
+ 
+ Fibonacci sequence.
+ */
+
+func fibonacci(_ number: Int) -> Int {
+    if number < 0 {
+        return 0
+    }
+    if number == 1 || number == 2 {
+        return 1
+    }
+    return fibonacci(number - 1) + fibonacci(number - 2)
+}
+
+fibonacci(1)  // = 1
+fibonacci(2)  // = 1
+fibonacci(3)  // = 2
+fibonacci(4)  // = 3
+fibonacci(5)  // = 5
+fibonacci(10) // = 55
