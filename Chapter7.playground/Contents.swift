@@ -75,3 +75,68 @@ for player in players {
 for (index, player) in players.enumerated() {
     print("\(index + 1). \(player)")
 }
+
+/*:
+ # Dictionaries
+ */
+
+// The empty dictionary literal looks like this [:]
+var pairs: [String: Int] = [:]
+
+// You can define the capacity of the dictionary
+pairs.reserveCapacity(20)
+
+// Use .isEmpty instead of count when testing if a dictionary is empty.  A dictionary needs to loop through all of the values to compute count.
+
+var bobData = [
+    "name": "Bob",
+    "profession": "Card Player",
+    "country": "USA"
+]
+
+// to add a value to the dictionary
+bobData.updateValue("CA", forKey: "state")
+
+// alternatively,
+bobData["city"] = "San Francisco"
+
+print(bobData)
+
+
+// Assigning nil to the value of a key will remove the pair from the dictionary.
+bobData["city"] = nil
+// Use the updateValue method if you do not want the pair removed from the dictionary.
+
+/*:
+ # Sets
+ */
+
+// Declare a set explicitly
+let setOne: Set<Int>
+
+// Sets do not have their own literals.
+
+var someSet: Set<Int> = [1, 2, 3, 1]
+print(someSet)
+
+/*:
+ ## Challenges
+ 
+ ### Challenge 1.  Which of the following are valid statements?
+ 
+ 1. let array1 = [Int]()        // valid.
+ 2. let array2 = []             // invalid.
+ 3. let array3: [String] = []   // valid.
+ 
+ let array4 = [1, 2, 3]
+ 
+ 4. print(array4[0])
+ 5. print(array4[5])
+ 6. array4[1...2]
+ 7. array4[0] = 4
+ 8. array4.append(4)
+ 
+
+ 
+ */
+
