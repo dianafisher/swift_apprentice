@@ -41,5 +41,14 @@ let myName = calculateFullName("John", "Lennon")
 print("\(myName)")
 
 /*:
- ###
+ ### 4. Change calculateFullName to return a tuple containing both the full name and the length of the name. You can find a string’s length by using the count property. Use this function to determine the length of your own full name.
  */
+
+func calculateFullName2(_ first: String, _ last: String) -> (String, Int) {
+    let fullName = first + " " + last
+    let length = fullName.count
+    return (fullName, length)
+}
+
+let (name, length) = calculateFullName2("Diana", "Fisher")
+print("\(name) is \(length) characters long.")
