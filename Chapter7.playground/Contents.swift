@@ -38,3 +38,12 @@ print(upcomingPlayersArray[0], upcomingPlayersArray[1])
 // Appending elements to an array.
 
 players.append("Greg")
+players += ["Henry"]
+
+print(players)
+
+/*:
+ # Mini-exercise
+ Use index(of:) to determine the position of the element "Dan" in players.
+ */
+let danIndex = players.index(of: "Dan")
