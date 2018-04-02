@@ -27,3 +27,28 @@ let parsedInt = Int("10")
 let parsedInt2 = Int("Dog")
 
 // parsedInt2 is nil.
+
+/*:
+ # Notes
+ */
+
+var result: Int? = 30
+print(result as Any)
+
+// Force unwrapping
+
+var authorName: String? = "Matt Galloway"
+var authorAge: Int? = 30
+
+var unwrappedAuthorName = authorName!  // look inside the box and take out the value.
+
+authorName = nil
+//print("Author is \(authorName)")
+
+// Optional binding - if the optional contains a value, the value is unwrapped and stored in (bound to) the constant
+
+if let unwrappedAuthorName = authorName {
+    print("Author is \(unwrappedAuthorName)")
+} else {
+    print("No author.")
+}
