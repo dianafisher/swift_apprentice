@@ -219,3 +219,13 @@ default:
     print("invalid age")
 }
 
+/*:
+ ## Challenges
+ 
+ ### 1. In the following for loop, what will be the value of sum, and how many iterations will happen?
+     var sum = 0
+     for i in 0...5 {
+        sum += i
+     }
+ */
+// 0+1+2+3+4+5 = 15 , six iterations.
