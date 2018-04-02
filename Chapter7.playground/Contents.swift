@@ -47,3 +47,31 @@ print(players)
  Use index(of:) to determine the position of the element "Dan" in players.
  */
 let danIndex = players.index(of: "Dan")
+
+if let index = danIndex {
+    players[index] = "Daniel"
+}
+print(players)
+
+// Use subscripting with ranges to update multiple values in the array..
+players[0...1] = ["Happy", "Slappy", "Fluffy", "Doc"]
+print(players)  // The first two items in the players array have been replaced with the above array even though the sizes are different.
+
+// Swapping items...
+players.swapAt(1, 3)
+print(players)
+
+
+// Sort the array
+players.sort()
+print(players)
+
+// Iterating through an array
+for player in players {
+    print(player)
+}
+
+// If you also need the index..
+for (index, player) in players.enumerated() {
+    print("\(index + 1). \(player)")
+}
