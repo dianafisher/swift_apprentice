@@ -172,7 +172,7 @@ print("It divides \(answer2) times")
  */
 let number: Int??? = 10  // nested optional
 
-print(number)
+//print(number)
 
 // 1. Fully unwrap and print the number
 print(number!!!)
@@ -186,16 +186,16 @@ if let a = number {
     }
 }
 
+if let n1 = number,
+    let n2 = n1,
+    let n3 = n2 {
+    print(n3)
+}
+
 // 3. Write a function...
 
 func printNumber(_ number: Int???) {
-    guard let a = number else{
-        return
-    }
-    guard let b = a else{
-        return
-    }
-    guard let c = b else {
+    guard let a = number, let b = a, let c = b else {
         return
     }
     print(c)
