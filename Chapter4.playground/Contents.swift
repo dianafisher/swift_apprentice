@@ -229,3 +229,35 @@ default:
      }
  */
 // 0+1+2+3+4+5 = 15 , six iterations.
+
+/*:
+ ### 2. In the while loop below, how many instances of “a” will there be in aLotOfAs? Hint: aLotOfAs.count tells you how many characters are in the string aLotOfAs.
+    var aLotOfAs = ""
+    while aLotOfAs.count < 10 {
+        aLotOfAs += "a"
+    }
+ */
+
+// The loop stops when there are 10 instances of a in aLotOfAs.  So the answer is 10.
+
+/*
+ ### 3. Consider the following switch statement:
+     switch coordinates {
+     case let (x, y, z) where x == y && y == z:
+        print("x = y = z")
+     case (_, _, 0):
+        print("On the x/y plane")
+     case (_, 0, _):
+        print("On the x/z plane")
+     case (0, _, _):
+        print("On the y/z plane")
+     default:
+        print("Nothing special")
+     }
+ What will this code print when coordinates is each of the following?
+ */
+let coordinates0 = (1, 5, 0)  // prints "On the x/y plane"
+let coordinates1 = (2, 2, 2)  // prints "x = y = z"
+let coordinates2 = (3, 0, 1)  // prints "On the x/z plane"
+let coordinates3 = (3, 2, 5)  // prints "Nothing special"
+let coordinates4 = (0, 2, 4)  // prints "On the y/z plane"
