@@ -261,3 +261,21 @@ let coordinates1 = (2, 2, 2)  // prints "x = y = z"
 let coordinates2 = (3, 0, 1)  // prints "On the x/z plane"
 let coordinates3 = (3, 2, 5)  // prints "Nothing special"
 let coordinates4 = (0, 2, 4)  // prints "On the y/z plane"
+
+/*:
+ ### 4. A closed range can never be empty. Why?
+ */
+
+// Ranges must always be increasing.
+
+/*:
+ ### 5. Print a countdown from 10 to 0. (Note: do not use the reversed() method, which will be introduced later.)
+ */
+for i in 0...10 {
+    let value = 10-i
+    print("\(value)")
+}
+
+/*:
+ ### 6. Print 0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0. (Note: do not use the stride(from:by:to:) function, which will be introduced later.)
+ */
