@@ -32,3 +32,14 @@ printFullName("Matt", "Bellamy")
 /*:
  ### 3. Write a function named calculateFullName that returns the full name as a string. Use it to store your own full name in a constant.
  */
+
+func calculateFullName(_ first: String, _ last: String) -> String {
+    return first + " " + last
+}
+
+let myName = calculateFullName("John", "Lennon")
+print("\(myName)")
+
+/*:
+ ###
+ */
