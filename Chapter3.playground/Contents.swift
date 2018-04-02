@@ -207,4 +207,72 @@ if (doubleNum == 1) {
     print("\(doubleValue) is a not power of 2")
 }
 
+/*:
+ ### Challenge 7
+ Print a table of the first 10 powers of 2
+ */
+
+var exponent = 0
+while exponent <= 10 {
+    let value = pow(2.0, Double(exponent))
+    print("2^\(exponent)\t\t\(value)")
+    exponent = exponent + 1
+}
+
+/*:
+ ### Challenge 8
+ Given a number n, calculate the n-th Fibonacci number. (Recall Fibonacci is 1, 1, 2, 3, 5, 8, 13, ... Start with 1 and 1 and add these values together to get the next value. The next value is the sum of the previous two. So the next value in this case is 8+13 = 21.)
+ 
+ */
+
+let n = 10
+var count = 0
+var prev1 = 1
+var prev2 = 1
+
+while count < n {
+    let sum = prev1 + prev2
+    prev1 = prev2
+    prev2 = sum
+    count += 1
+}
+
+/*:
+ ### Challenge 9
+ Given a number n, calculate the factorial of n. (Example: 4 factorial is equal to 1 * 2 * 3 * 4.)
+ */
+
+let stop = 5
+var m = stop
+var result = 1
+while m > 1 {
+    result *= m
+    m = m - 1
+}
+print("\(stop)! = \(result)")
+
+/*:
+ ### Challenge 10
+ 
+ Given a number between 2 and 12, calculate the odds of rolling this number using two six-sided dice. Compute it by exhaustively looping through all of the combinations and counting the fraction of outcomes that give you that value. Don’t use a formula.
+ */
+
+let target = 7
+var die1 = 1
+var matchCount = 0
+while die1 <= 6 {
+    var die2 = 1
+    while die2 <= 6 {
+        let sum = die1 + die2
+        if sum == target {
+            matchCount += 1
+        }
+        die2 += 1
+    }
+    die1 += 1
+}
+
+let odds = Double(matchCount)/36.0
+print("odds of rolling \(target) = \(matchCount) out of 36 = \(odds)")
+
 
