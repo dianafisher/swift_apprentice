@@ -52,3 +52,20 @@ if let unwrappedAuthorName = authorName {
 } else {
     print("No author.")
 }
+
+// Optional binding is much safer than force unwrapping, and you should use is whenever an optional might be nil.  Force unwrapping is only appropriate when an optional is guaranteed to contain a value.
+
+/*:
+ # Mini-exercises
+ 
+ ## 1. Using your myFavoriteSong variable from earlier, use optional binding to check if it contains a value. If it does, print out the value. If it doesn’t, print "I don’t have a favorite song.
+ */
+if let faveSong = myFavoriteSong {
+    print("My favorite song is \(faveSong)")
+} else {
+    print("I don't have a favorite song.")
+}
+
+/*:
+ ## 2. 
+ */
