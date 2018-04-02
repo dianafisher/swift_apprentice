@@ -279,3 +279,7 @@ for i in 0...10 {
 /*:
  ### 6. Print 0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0. (Note: do not use the stride(from:by:to:) function, which will be introduced later.)
  */
+for i in 0...10 {
+    let value = Double(i)/10.0
+    print("\(value)")
+}
