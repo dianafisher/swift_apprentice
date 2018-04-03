@@ -36,6 +36,7 @@ multiplyClosure = {
     $0 * $1
 }
 
+// Since closures are just functions without names, you can pass either a function or a closure into the operation parameter.
 func operateOnNumbers(_ a: Int, _ b: Int, operation: (Int, Int) -> Int) -> Int {
     let result = operation(a, b)
     print(result)
@@ -46,4 +47,28 @@ let addClosure = { (a: Int, b: Int) in
     a + b
 }
 
-operateOnNumbers(4, <#T##b: Int##Int#>, operation: <#T##(Int, Int) -> Int#>)
+operateOnNumbers(4, 2, operation: addClosure)
+
+// Can define the entire thing inline, like this:
+operateOnNumbers(5, 3) { (a: Int, b: Int) -> Int in
+    return a * b
+}
+
+operateOnNumbers(10, 3, operation: { $0 + $1 })
+
+/*:
+ ### Trailing closure syntax:
+ 
+ Remove the label and pull the braces outside of the function call parameter list.
+ */
+operateOnNumbers(4, 2) {
+    $0 + $1
+}
+
+// Closures introduce a new scope and inherit all entities visible to the scope in which they are defined.
+
+var counter = 0
+let incremenetCounter = {
+    counter += 1
+}
+// incrementCounter is able to access the counter variable becuase the closure is defined i
