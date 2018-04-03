@@ -317,3 +317,38 @@ func occurrencesOfCharacters(in text: String) -> [Character: Int] {
 
 let r = occurrencesOfCharacters(in: "Balloon")
 print(r)
+
+/*:
+ ### Challenge 11.
+ Write a function that returns true if all of the values of a dictionary are unique. Use a set to test uniqueness.
+ */
+
+func isInvertible(_ dictionary: [String: Int]) -> Bool {
+    var valueSet: Set<Int> = []
+    for value in dictionary.values {
+        if valueSet.contains(value) {
+            return false
+        }
+        valueSet.insert(value)
+    }
+    return true
+}
+
+/*:
+ ### Challenge 12.
+ Given the dictionary:
+    var nameTitleLookup: [String: String?] = ["Mary": "Engineer", "Patrick": "Intern", "Ray": "Hacker"]
+ 
+ Set the value of the key "Patrick" to nil and completely remove the key and value for "Ray".
+ */
+var nameTitleLookup: [String: String?] = ["Mary": "Engineer", "Patrick": "Intern", "Ray": "Hacker"]
+print(nameTitleLookup)
+
+nameTitleLookup.updateValue(nil, forKey: "Patrick")  // set value of "Patrick" to nil.
+
+// completely remove "Ray"
+nameTitleLookup["Ray"] = nil
+
+print(nameTitleLookup)
+
+
