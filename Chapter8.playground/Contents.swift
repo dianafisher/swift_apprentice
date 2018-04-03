@@ -73,7 +73,7 @@ let incremenetCounter = {
 }
 // incrementCounter is able to access the counter variable becuase the closure is defined in the same scope as the variable.  The closure is said to capture the counter variable.  Any changes it makes to the variable are visible both inside and outside the closure.
 
-// this function returns a closure that will increment its internal counter each time it is called.
+// this function returns a closure that will increment its internal counter each time it is called.  Each time you call this function you get a different counter.
 func countingClosure() -> () -> Int {
     var counter = 0
     let incrementCounter: () -> Int = {
@@ -86,5 +86,81 @@ func countingClosure() -> () -> Int {
 let counter1 = countingClosure()
 let counter2 = countingClosure()
 
-counter1()
-counter2()
+counter1()  // 1
+counter2()  // 1
+
+// Use closures to do custom sorting on collections
+let names = ["ZZZZZ", "BB", "A", "CCC", "EEEE"]
+names.sorted()
+
+// sort by length of the string
+names.sorted {
+    $0.count > $1.count
+}
+
+/*:
+ ### for Each
+ */
+let values = [1, 2, 3, 4, 5, 6]
+values.forEach {
+    print("\($0): \($0*$0)")
+}
+
+/*:
+ ### filter
+ */
+var prices = [1.5, 10, 4.99, 2.30, 8.19]
+
+// filter out prices greater than 5
+let largePrices = prices.filter {
+    return $0 > 5   // the closure returns true or false depending on whether or not the vlaue should be kept.
+}
+// The (new) array returned will contain all elements for which the closure returned true.
+
+/*:
+ ### map
+ */
+
+let salesPrices = prices.map {
+    return $0 * 0.9
+}
+
+// Use map to change the type of the values in an array.
+let userInput = ["0", "11", "haha", "42"]
+let numbers = userInput.map {
+    Int($0)
+}
+
+/*:
+ ### reduce - takes a starting value and a closure.  The closure takes two values: the current value and an element from the array.  The closure returns the next value that should be passed into the closure as the current value parameter.
+ */
+let sum = prices.reduce(0) {
+    return $0 + $1
+}
+
+let stock = [1.5: 5, 10: 2, 4.99: 20, 2.30: 5, 8.19: 30]
+let stockSum = stock.reduce(0) {
+    return $0 + $1.key * Double($1.value)
+}
+
+// reduce(into:_:)
+
+let farmAnimals = ["🐎": 5, "🐄": 10, "🐑": 50, "🐶": 1]
+let allAnimals = farmAnimals.reduce(into: []) {
+    (result, this: (key: String, value: Int)) in
+    for _ in 0 ..< this.value {
+        result.append(this.key)
+    }
+}
+
+/*:
+ # Mini-exercises
+ ## 1.  Create a constant array called names which contains some names as strings. Any names will do — make sure there’s more than three. Now use reduce to create a string which is the concatenation of each name in the array.
+ */
+let names2 = ["Charlie", "Dave", "Erica", "George", "Bob"]
+let combined = names2.reduce("") {
+    $0 + $1
+}
+print(combined)
+
+
