@@ -173,7 +173,44 @@ func removing(_ item: Int, from array: [Int]) -> [Int] {
  ### Challenge 4. Arrays have a reversed() method that returns an array holding the same elements as the original array, in reverse order. Write a function that does the same thing, without using reversed(). This is the signature of the function:
 */
 func reversed(_ array: [Int]) -> [Int] {
+    var result : [Int] = []
+    let lastIndex = array.count - 1
+    for index in stride(from:lastIndex, through: 0, by: -1) {
+        result.append(array[index])
+    }
+    return result
+}
+
+let array3 = [1, 3, 4, 5, 6]
+let revArray3 = reversed(array3)
+print(revArray3)
+
+/*
+ ### Challenge 5.
+ 
+ The function below returns a random number between 0 and the given argument:
+     import Foundation
+     func randomFromZero(to number: Int) -> Int {
+        return Int(arc4random_uniform(UInt32(number)))
+     }
+ Use it to write a function that shuffles the elements of an array in random order.
+ */
+
+import Foundation
+func randomFromZero(to number: Int) -> Int {
+    return Int(arc4random_uniform(UInt32(number)))
+}
+
+func randomized(_ array: [Int]) -> [Int] {
     var result = array
+    for index in 0..<array.count {
+        let randomIndex = randomFromZero(to: array.count)
+        result.swapAt(index, randomIndex)
+    }
     
     return result
 }
+
+let shuffled = randomized(array3)
+print(shuffled)
+
