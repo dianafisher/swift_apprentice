@@ -71,4 +71,20 @@ var counter = 0
 let incremenetCounter = {
     counter += 1
 }
-// incrementCounter is able to access the counter variable becuase the closure is defined i
+// incrementCounter is able to access the counter variable becuase the closure is defined in the same scope as the variable.  The closure is said to capture the counter variable.  Any changes it makes to the variable are visible both inside and outside the closure.
+
+// this function returns a closure that will increment its internal counter each time it is called.
+func countingClosure() -> () -> Int {
+    var counter = 0
+    let incrementCounter: () -> Int = {
+        counter += 1
+        return counter
+    }
+    return incrementCounter
+}
+
+let counter1 = countingClosure()
+let counter2 = countingClosure()
+
+counter1()
+counter2()
