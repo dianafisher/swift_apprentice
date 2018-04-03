@@ -266,3 +266,25 @@ print(minMax(of: array3) as Any)
  
  */
 
+/*:
+ ### Challenge 8.
+ 
+ Given a dictionary with two-letter state codes as keys, and the full state names as values, write a function that prints all the states with names longer than eight characters. For example, for the dictionary ["NY": "New York", "CA": "California"], the output would be California.
+ */
+
+var states : [String: String] = [:]
+states["NY"] = "New York"
+states["CA"] = "California"
+states["OR"] = "Oregon"
+
+func printLongNames(states: [String:String]) {
+    for state in states {
+        if state.value.count > 8 {
+            print(state.value)
+        }
+    }
+}
+
+printLongNames(states: states)
+
+
