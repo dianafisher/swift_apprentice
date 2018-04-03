@@ -214,3 +214,54 @@ func randomized(_ array: [Int]) -> [Int] {
 let shuffled = randomized(array3)
 print(shuffled)
 
+/*:
+ ### Challenge 6.
+ 
+ Write a function that calculates the minimum and maximum value in an array of integers. Calculate these values yourself; don’t use the methods min and max. Return nil if the given array is empty.
+ */
+
+func minMax(of numbers: [Int]) -> (min: Int, max: Int)? {
+    if numbers.count == 0 {
+        return nil
+    }
+    
+    var max = Int.min
+    var min = Int.max
+    
+    for n in numbers {
+        if n > max {
+            max = n
+        }
+        if n < min {
+            min = n
+        }
+    }
+    return (min, max)
+}
+
+print(minMax(of: array3) as Any)
+
+/*:
+ ### Challenge 7.
+ 
+ Which of the following are valid statements?
+ 1. let dict1: [Int, Int] = [:]
+ 2. let dict2 = [:]
+ 3. let dict3: [Int: Int] = [:]
+ 
+ For the next four statements, use the following dictionary:
+ let dict4 = ["One": 1, "Two": 2, "Three": 3]
+ 
+ 4. dict4[1]
+ 5. dict4["One"]
+ 6. dict4["Zero"] = 0
+ 7. dict4[0] = "Zero"
+ 
+ For the next three statements, use the following dictionary:
+ var dict5 = ["NY": "New York", "CA": "California"]
+ 
+ 8. dict5["NY"]
+ 9. dict5["WA"] = "Washington"
+ 10. dict5["CA"] = nil”
+ 
+ */
