@@ -287,4 +287,33 @@ func printLongNames(states: [String:String]) {
 
 printLongNames(states: states)
 
+/*:
+ ### Challenge 9.
+ 
+ Write a function that combines two dictionaries into one. If a certain key appears in both dictionaries, ignore the pair from the first dictionary.
+ */
 
+func merging(_ dict1: [String: String], with dict2: [String: String]) -> [String: String] {
+    var result = dict1
+    for key in dict2.keys {
+        result[key] = dict2[key]
+    }
+    return result
+}
+
+/*:
+ ### Challenge 10.
+ 
+ Declare a function occurrencesOfCharacters that calculates which characters occur in a string, as well as how often each of these characters occur.
+ */
+
+func occurrencesOfCharacters(in text: String) -> [Character: Int] {
+    var result: [Character: Int] = [:]
+    for character in text {
+        result[character, default: 0] += 1  // Dictionaries have a special subscript operator that let you add a default value if it is not found in the dictionary!
+    }
+    return result
+}
+
+let r = occurrencesOfCharacters(in: "Balloon")
+print(r)
